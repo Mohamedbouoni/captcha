@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: captcha-backend
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ALLOWED_ORIGINS
+        # Add your Vercel frontend URL here after deployment
+        # Example: https://your-app.vercel.app
+        sync: false
+    healthCheckPath: /health
